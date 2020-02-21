@@ -1,0 +1,46 @@
+.Input {
+  font-family: "Arial";
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.Input {
+  margin-bottom: 5px;
+}
+
+.Input label {
+  font-weight: bold;
+  padding: 0;
+  display: block;
+  text-align: left;
+}
+
+.Input input {
+  display: block;
+  font-size: 1.2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  padding: 7px;
+  width: 100%;
+  outline: none;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.Input span {
+  color: #f01f30;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.Input.invalid {
+  color: #f01f30;
+}
+
+.Input.invalid input {
+  border-color: red;
+}
+/*# sourceMappingURL=Input.css.map */

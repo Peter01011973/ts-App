@@ -1,0 +1,37 @@
+.Button {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    color: #000;
+    margin-top: 12px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 12px;
+    width: 100%;
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        box-shadow: inset 2px 2px 1px rgba(0, 0, 0, .3);
+    }
+    &.error {
+        background: rgba(240, 87, 108, 1);
+    }
+    &.primary {
+        background: #2884f6;
+        color: #fff;
+    }
+    &.success {
+        background: rgba(161, 240, 69, 1);    
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    &.success:disabled,
+    &.primary:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        color: #000;
+    }
+}

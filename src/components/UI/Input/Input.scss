@@ -1,0 +1,38 @@
+@import '../../../global.scss';
+
+.Input {
+    @extend %InputFormFont;
+    margin-bottom: 5px;
+}
+
+.Input label {
+    font-weight: bold;
+    padding: 0;
+    display: block;
+    text-align: left;
+}
+
+.Input input {
+    display: block;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    padding: 7px;
+    width: 100%;
+    outline: none;
+    transition: all 300ms ease-in-out;
+}
+
+.Input span {
+    color: #f01f30;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.Input.invalid {   
+    color: #f01f30;
+    input {
+        border-color: red;
+    }
+}

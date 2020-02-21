@@ -1,0 +1,27 @@
+.auth {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    // flex-grow: 1;
+    height: 100%;
+    align-items: center;
+    // justify-content: center;
+    background: linear-gradient(270deg, #cef2fa 0%, #59bfef 100% );
+    &__title {
+        font-family: Arial;
+        font-size: 2rem;
+        margin-top: 70px;
+        color: white;
+        margin-bottom: 20px;
+    }
+    .error {
+        margin-top: 2rem;
+        color: red;
+        font-size: 1.5rem;
+    }
+    .loading {
+        margin-top: 2rem;
+        color: white;
+        font-size: 1.2rem;
+    }
+}
