@@ -11,7 +11,7 @@ interface Props {
 const Logout: React.FC<Props> = ({authLogout}) => {
     localStorage.clear();
     authLogout();
-    return ( <Redirect to='/'/> )
+    return <Redirect to='/'/> 
 }
 
 const mapDispatchToProps = {authLogout}
