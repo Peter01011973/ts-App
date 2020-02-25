@@ -30,7 +30,7 @@ const Auth: React.FC<Props> = ({ location, authSuccess }) => {
         setError(null);
         setIsLoading(true);
 
-        const result = await singInFB(email, password);
+        const result = await singInFB(email, password, isSignin);
         const { response, success, message } = result;
         setIsLoading(false);
         if (success) {

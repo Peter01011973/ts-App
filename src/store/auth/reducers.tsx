@@ -2,7 +2,7 @@ import {AuthState, AuthActionTypes, AUTH_SUCCESS, AUTH_LOGOUT} from '../auth/typ
 
 const initAuthState: AuthState = {
     loggedIn: false,
-    email: 'tt',
+    email: '',
     token: ''
 }
 

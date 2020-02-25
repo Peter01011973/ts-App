@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store/storeConfig';
+import store, { sagaMiddleware } from './store/storeConfig';
+import rootSaga from './store/saga/rootSaga';
 
 import App from './App';
 
@@ -13,5 +14,7 @@ const app = (
         </BrowserRouter>
     </Provider>
 )
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(app, document.getElementById('root'));

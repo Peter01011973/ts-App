@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import About from '../../containers/About';
 import Auth from '../../containers/Auth';
-import Post from '../../containers/Post';
+import Post from '../../containers/Posts';
 import Logout from '../../containers/Logout';
 import ProtectedRoute from '../../components/ProtectedRoute';
 interface Props {
