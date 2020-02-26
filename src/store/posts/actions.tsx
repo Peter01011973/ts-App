@@ -15,7 +15,7 @@ export const deletePost = (id: number) => ({type: DELETE_POST, payload: id});
 export const updatePost = (post: PostI) => ({type: UPDATE_POST, payload: post});
 
 // for SAGA
-export const addPostsSAGA = () => ({type: ADD_POSTS_SAGA});
+export const addPostsSAGA = (data: {currentPage: number, pageSize: number}) => ({type: ADD_POSTS_SAGA, payload: data});
 export const addPostSAGA = (data: PostI) => ({type: ADD_POST_SAGA, payload: data})
 export const deletePostSAGA = (id: number) => ({type: DELETE_POST_SAGA, payload: id});
 export const editPostSAGA = (post: PostI) => ({type: EDIT_POST_SAGA, payload: post});

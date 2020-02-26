@@ -19,7 +19,7 @@ interface addPostsAction {
 
 interface addPostsSagaAction {
     type: typeof ADD_POSTS_SAGA
-    payload: null
+    payload: {currentPage: number, pageSize: number}
 }
 
 interface fetchPostAction {

@@ -16,13 +16,14 @@ export function* fetchPostAsync(action: any, methodAPI: Function) {
             case ADD_POST_SAGA: yield put(addPost(response.data)); break;
             case ADD_POSTS_SAGA: yield put(addPosts(response.data)); break;            
             default: break;
-        }    
+        }
+        console.log(response);  
     }
     else { yield put(errorPost(message)) }
 }
 
 export default function* rootSaga() {
-    yield takeLatest(ADD_POSTS_SAGA, (action: PostActionTypes) => fetchPostAsync(action, getAllPostsAPI));
+    yield takeLatest(ADD_POSTS_SAGA, (action: any) => fetchPostAsync(action, getAllPostsAPI));
     yield takeLatest(ADD_POST_SAGA, (action: any) => fetchPostAsync(action, addPostAPI));
     yield takeLatest(DELETE_POST_SAGA, (action: any) => fetchPostAsync(action, deletePostAPI));
     yield takeLatest(EDIT_POST_SAGA, (action: any) => fetchPostAsync(action, editPostAPI));

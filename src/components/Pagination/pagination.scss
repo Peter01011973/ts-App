@@ -1,0 +1,36 @@
+
+.paginator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: Arial;
+    justify-content: flex-end;
+    // width: 30%;
+    &__select {
+        border: none;
+        font-family: Arial;
+        font-size: 1rem;
+        margin-right: 1rem;
+        background: #e0e0e0;
+        padding: 5px;
+    }
+    &__items {
+        margin-left: 1rem;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        &__item {
+            background: transparent;
+            border: none;
+            margin-right: 5px;
+            &:disabled {
+                color: silver
+            }   
+        }
+        &__item:hover {
+            background: yellowgreen;
+            cursor: pointer;
+        }
+    }
+
+}
