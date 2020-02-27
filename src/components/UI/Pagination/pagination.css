@@ -13,6 +13,7 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin-top: 5px;
 }
 
 .paginator__select {
@@ -49,5 +50,10 @@
 .paginator__items__item:hover {
   background: yellowgreen;
   cursor: pointer;
+}
+
+.paginator__items .currentPage {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 /*# sourceMappingURL=pagination.css.map */

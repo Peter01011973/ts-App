@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import './posts.css';
 import { useDispatch, connect } from 'react-redux';
 import { RootState } from '../../store/storeConfig';
 import { addPostsSAGA, addPostSAGA, editPostSAGA, deletePostSAGA } from '../../store/posts/actions';
 import { PostI } from '../../interfaces';
-import PostsRender from '../../components/PostsRender';
-import Pagination from '../../components/Pagination';
-
+import PostList from './PostList';
+import Pagination from '../../components/UI/Pagination';
+import { getPosts, getIsLoading } from '../../store/posts/selectors';
 interface Props {
     posts: PostI[],
     isLoading: boolean,
     error: boolean,
+    postsTotalSize: number
 }
 
-const Post: React.FC<Props> = ({ posts, isLoading, error }) => {
+const Post: React.FC<Props> = ({ posts, isLoading, error, postsTotalSize }) => {
     const dispatch = useDispatch();
     const [addOREditData, setAddOREditData] = useState(null);
     const [addToggle, setAddToggle] = useState(false);
@@ -24,7 +24,7 @@ const Post: React.FC<Props> = ({ posts, isLoading, error }) => {
     let startIndex: number = 1;
     let endIndex: number = 1;
     const [pageSize, setPageSize] = useState(defaultPageSize)
-    const totalItems = 100;
+    const totalItems = postsTotalSize;
 
     const getPage = (currentPage: number, totalItems: number, pageSize: number) => {
         startIndex = (currentPage - 1) * pageSize;
@@ -49,6 +49,7 @@ const Post: React.FC<Props> = ({ posts, isLoading, error }) => {
     const deletePostHandler = (event: Event, postData: PostI) => {
         event.stopPropagation();
         dispatch(deletePostSAGA(postData.id));
+        dispatch(addPostsSAGA({currentPage, pageSize}));
     }
 
     const selectPostHandler = (postData: PostI) => { console.log('select', postData) }
@@ -68,11 +69,17 @@ const Post: React.FC<Props> = ({ posts, isLoading, error }) => {
         if (addToggle) {
             dispatch(addPostSAGA(postData))
             setAddToggle(false);
+            setCurrentPage(Math.ceil(postsTotalSize / pageSize));
+            dispatch(addPostsSAGA({currentPage, pageSize}));
         } else {
             dispatch(editPostSAGA(postData))
             setEditToggle(false);
+            dispatch(addPostsSAGA({currentPage, pageSize}));
         }
     }
+
+    console.log('current Page', currentPage);
+    
 
     return (
         <>
@@ -87,7 +94,7 @@ const Post: React.FC<Props> = ({ posts, isLoading, error }) => {
                 startIndex={startIndex + 1}
                 endIndex={endIndex + 1}
             />
-            <PostsRender
+            <PostList
                 error={error}
                 isLoading={isLoading}
                 data={posts}
@@ -106,9 +113,10 @@ const Post: React.FC<Props> = ({ posts, isLoading, error }) => {
 
 const mapStateToProps = (state: RootState) => {
     return {
-        posts: state.post.posts,
-        isLoading: state.post.isLoading,
-        error: state.post.error
+        posts: getPosts(state),
+        isLoading: getIsLoading(state),
+        error: state.post.error,
+        postsTotalSize: state.post.postListTotalSize
     }
 }
 

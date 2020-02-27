@@ -1,8 +1,9 @@
 import React from 'react'
-import { PostI } from '../../interfaces'
-import PostRender from './PostRender'
+import { PostI } from '../../../interfaces'
+import Post from './PostItem'
 import AddOReditPost from '../AddOrEditPost';
-import './postsRender.css'
+import './PostItem';
+import './postList.css';
 
 interface Props {
     data: PostI[],
@@ -35,7 +36,7 @@ const PostsRender: React.FC<Props> = ({
             </thead>
             <tbody>
                 {data.map((post: PostI) => (
-                    <PostRender 
+                    <Post
                         key = {post.id}
                         post = {post}
                         isLoading = {isLoading}
@@ -49,8 +50,8 @@ const PostsRender: React.FC<Props> = ({
     )
 
     return (
-        <div>
-            {isLoading ? <p>Loading ...</p> : !(addToggle || editToggle) && <button className = 'addBut' disabled={isLoading} onClick={() => { addPostHandler() }}>Add new item</button> }
+        <div className='postsList'>
+            {isLoading ? <p className='loading'>Loading ...</p> : !(addToggle || editToggle) && <button className = 'postsList__addButton' disabled={isLoading} onClick={() => { addPostHandler() }}>Add new item</button> }
             {(addToggle || editToggle) && <AddOReditPost addOrEditPostHandler={addOrEditPostHandler} editPost = {addOREditData}/>}
             {table}
         </div>

@@ -13,7 +13,11 @@ interface Props {
     endIndex: number
 }
 
-const Pagination: React.FC<Props> = ({ currentPageChangeHandler, currentPage, pageSizeArray, pageSizeChangeHandler, defaultPageSize, dataLenght, pageSize, startIndex, endIndex }) => {
+const Pagination: React.FC<Props> = ({ 
+    currentPageChangeHandler, currentPage, 
+    pageSizeArray, pageSizeChangeHandler, 
+    defaultPageSize, dataLenght, pageSize, 
+    startIndex, endIndex }) => {
 
     return (
         <div className = 'paginator'>
@@ -35,6 +39,7 @@ const Pagination: React.FC<Props> = ({ currentPageChangeHandler, currentPage, pa
                     onClick={() => currentPageChangeHandler(currentPage-1)}
                     disabled = {startIndex-pageSize<0}
                 ><i className='material-icons'>chevron_left</i></button>
+                <p className = 'currentPage'>{Math.floor(startIndex/pageSize)+1}</p>
                 <button 
                     className={'paginator__items__item'} 
                     onClick={() =>{ return currentPageChangeHandler(currentPage+1)} }

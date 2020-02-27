@@ -8,5 +8,6 @@ export interface PostI {
 export interface PostsStateI {
     posts: PostI[],
     isLoading: boolean,
-    error: boolean
+    error: boolean, 
+    postListTotalSize: number
 }

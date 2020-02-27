@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-const transport = async (url: string, config: AxiosRequestConfig): Promise<{
+const axiosAPI = async (url: string, config: AxiosRequestConfig): Promise<{
     response: AxiosResponse<any>;
     success: boolean;
     message: string;
@@ -21,4 +21,4 @@ const transport = async (url: string, config: AxiosRequestConfig): Promise<{
     }
 };
 
-export  default transport;
+export  default axiosAPI;

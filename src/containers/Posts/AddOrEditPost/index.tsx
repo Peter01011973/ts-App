@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import './addOReditPost.css';
-import { PostI } from '../../interfaces';
+import { PostI } from '../../../interfaces';
 
 interface Props {
     addOrEditPostHandler: Function,
@@ -29,7 +29,7 @@ const AddOReditPost: React.FC<Props> = ({addOrEditPostHandler, editPost}) => {
     ,[])
 
     return (
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className='addAndEditForm'>
             <label>Title:
                 <input 
                     type='text' 

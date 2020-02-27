@@ -1,5 +1,6 @@
 import React from 'react'
-import { PostI } from '../../../interfaces'
+import { PostI } from '../../../../interfaces';
+import './postItem.css';
 
 interface Props {
     post: PostI,
@@ -18,8 +19,8 @@ const PostRender: React.FC<Props> = ({post, isLoading, selectPostHandler, delete
             <td>{body}</td>
             <td>{userId}</td>
             <td>
-                <button type="button" disabled={isLoading} onClick={(event) => deletePostHandler(event, post)}>Delete</button>
-                <button type="button" disabled={isLoading} onClick={(event) => editPostHandler(event, post)}>Edit</button>
+                <button className='buttonInTable' type="button" disabled={isLoading} onClick={(event) => deletePostHandler(event, post)}>Delete</button>
+                <button className='buttonInTable' type="button" disabled={isLoading} onClick={(event) => editPostHandler(event, post)}>Edit</button>
             </td>
         </tr>
     )
